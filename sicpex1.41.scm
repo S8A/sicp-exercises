@@ -1,0 +1,35 @@
+(define (double f)
+  (lambda (x) (f (f x))))
+
+(define (inc n) (+ n 1))
+(define (square x) (* x x))
+(define (cube x) (* x x x))
+
+
+#|
+(((double (double double)) inc) 5)
+(((double (lambda (x) (double (double x)))) inc) 5)
+(((lambda (x) (double (double (double (double x))))) inc) 5)
+((lambda (x) (double (double (double (double inc))))) 5)
+((lambda (x) (double (double (double (inc (inc x)))))) 5)
+((lambda (x) (double (double (inc (inc (inc (inc x))))))) 5)
+((lambda (x) (double (inc (inc (inc (inc (inc (inc (inc (inc x)))))))))) 5)
+((lambda (x) (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc x))))))))))))))))) 5)
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 5))))))))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 6)))))))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 7))))))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 8)))))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 9))))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 10)))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc (inc 11))))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc (inc 12)))))))))
+(inc (inc (inc (inc (inc (inc (inc (inc 13))))))))
+(inc (inc (inc (inc (inc (inc (inc 14)))))))
+(inc (inc (inc (inc (inc (inc 15))))))
+(inc (inc (inc (inc (inc 16)))))
+(inc (inc (inc (inc 17))))
+(inc (inc (inc 18)))
+(inc (inc 19))
+(inc 20)
+21
+|#

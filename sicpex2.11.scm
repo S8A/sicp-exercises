@@ -16,7 +16,7 @@
         (x2 (upper_bound x))
         (y1 (lower_bound y))
         (y2 (upper_bound y)))
-    cond (((and (< x2 0) (< y2 0)) (make_interval (* x2 y2) (* x1 y1)))
+    (cond ((and (< x2 0) (< y2 0)) (make_interval (* x2 y2) (* x1 y1)))
          ((and (< x2 0) (< y1 0) (> y2 0)) (make_interval (* x1 y2) (* x1 y1)))
          ((and (< x2 0) (> y1 0)) (make_interval (* x1 y2) (* x2 y1)))
          ((and (< x1 0) (> x2 0) (< y2 0)) (make_interval (* x2 y1) (* x1 y1)))

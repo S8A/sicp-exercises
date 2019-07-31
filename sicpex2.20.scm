@@ -1,0 +1,11 @@
+(define (same_parity x . y)
+  (define (even? n) (= (remainder n 2) 0))
+  (define (same? n)
+    (if (even? x) (even? n) (not (even? n))))
+  (define (iter l r)
+    (if (null? l)
+      r 
+      (if (same? (car l))
+        (iter (cdr l) (append r (list (car l))))
+        (iter (cdr l) r))))
+  (iter y (list x)))
